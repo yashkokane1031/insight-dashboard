@@ -26,7 +26,7 @@ This project was built from the ground up as a comprehensive, hands-on learning 
 * **Authentication:** JWT, Passlib (bcrypt hashing)
 
 ---
-## 🚀 Project Journey & Key Learnings
+## Project Journey & Key Learnings
 
 This project was a mentor-guided deep dive into full-stack development. The primary focus was on understanding system architecture and solving the complex problems that arise when integrating multiple technologies.
 
@@ -35,8 +35,3 @@ Key challenges I successfully debugged and resolved include:
 * Diagnosing and fixing a circular import dependency in the Python backend by refactoring the application structure.
 * Implementing and troubleshooting CORS to enable secure communication between the frontend and backend.
 * Managing a multi-service application with Docker and orchestrating three concurrent terminal processes for the database, backend, and frontend.
-
----
-## Local Development
-
-[We can add instructions here later on how another developer can run your project.]
