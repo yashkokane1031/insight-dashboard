@@ -1,7 +1,6 @@
 # InSight - Real-Time Analytics Dashboard
 
-![InSight Dashboard Demo GIF](![Image](https://github.com/user-attachments/assets/fad8643f-079a-4eaa-9e9a-3148565ed768))
-
+![Image](https://github.com/user-attachments/assets/a1a9442f-3d41-4fb7-aa8c-fe885d51c9b3)
 ## Description
 
 InSight is a feature-complete, full-stack web application that provides real-time data visualization and analytics. It features a secure, token-based authentication system, a live data ingestion pipeline, and a dynamic, component-based frontend.
