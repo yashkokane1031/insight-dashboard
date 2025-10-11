@@ -1,0 +1,33 @@
+body {
+  background-color: #0d1117; /* A darker, richer base color */
+  /* This creates a subtle dot grid pattern like you see on GitHub */
+  background-image: radial-gradient(circle at 1px 1px, #21262d 1px, transparent 0);
+  background-size: 25px 25px; 
+
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif; /* Modern, clean font */
+  margin: 0;
+}
+
+.chart-container {
+  position: relative;
+  /* Increase the size */
+  width: 500px;
+  height: 250px; 
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* Sidebar width and the rest */
+  grid-template-rows: auto 1fr; /* Navbar height and the rest */
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar content";
+  height: 100vh;
+}
+
+.content-area {
+  grid-area: content;
+  padding: 2rem;
+  overflow-y: auto; /* Make content scrollable if it overflows */
+}

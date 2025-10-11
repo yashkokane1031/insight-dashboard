@@ -1,0 +1,12 @@
+.navbar {
+  grid-area: navbar; /* For our main layout later */
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

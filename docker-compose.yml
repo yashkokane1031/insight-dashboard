@@ -1,0 +1,22 @@
+# Specifies the version of the Docker Compose file format.
+version: '3.8'
+
+# This is the main section where we define all our services.
+services:
+  # We're defining a single service and naming it 'db'.
+  db:
+    # Tells Docker which "box" or image to use. We're using the official TimescaleDB image.
+    image: timescale/timescaledb:latest-pg14
+    # Sets up environment variables inside the container. This is how we configure the database.
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=insightdb
+    # This is the port mapping. It connects port 5433 on your computer to port 5432 inside the container.
+    # This prevents conflict with any locally installed PostgreSQL.
+    ports:
+      - '5433:5432'
+    # This ensures that our database data is saved on your computer's hard drive.
+    # Without this, the data would disappear if we ever removed the container.
+    volumes:
+      - ./timescaledb_data:/var/lib/postgresql/data
