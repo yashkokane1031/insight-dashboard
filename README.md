@@ -1,6 +1,6 @@
 # InSight - Real-Time Analytics Dashboard
 
-![InSight Dashboard Demo GIF](<img width="1919" height="972" alt="Image" src="https://github.com/user-attachments/assets/a8c1b918-fac3-47e0-979a-6855c72586d0" />)
+![InSight Dashboard Demo GIF](![Image](https://github.com/user-attachments/assets/fad8643f-079a-4eaa-9e9a-3148565ed768))
 
 ## Description
 
