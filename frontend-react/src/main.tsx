@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import LoginPage from './pages/LoginPage.tsx';
-import { AuthProvider } from './context/AuthContext.tsx'; // 1. Import AuthProvider
+import { AuthProvider } from './context/AuthContext.tsx';
+import { WebSocketProvider } from './context/WebSocketContext.tsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -13,9 +14,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* 2. Wrap the RouterProvider with AuthProvider */}
     <AuthProvider>
-      <RouterProvider router={router} />
+      <WebSocketProvider>
+        <RouterProvider router={router} />
+      </WebSocketProvider>
     </AuthProvider>
   </React.StrictMode>,
 );

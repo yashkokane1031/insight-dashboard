@@ -1,37 +1,30 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useWebSocketContext } from '../context/WebSocketContext';
 
 function RealtimeValue() {
-  const [value, setValue] = useState<number | null>(null);
-  const { token } = useAuth();
-
-  useEffect(() => {
-    if (token) {
-      const fetchData = () => {
-        fetch('http://127.0.0.1:8000/data/latest', {
-          headers: { 'Authorization': `Bearer ${token}` }
-        })
-        .then(response => response.ok ? response.json() : Promise.reject('Auth failed'))
-        .then(data => {
-          if (data) {
-            setValue(data.value);
-          }
-        })
-        .catch(error => console.error('Error fetching real-time value:', error));
-      };
-
-      fetchData();
-      const intervalId = setInterval(fetchData, 3000);
-      return () => clearInterval(intervalId);
-    }
-  }, [token]);
+  // Use shared WebSocket context for real-time data
+  const { latestValue, isConnected } = useWebSocketContext();
 
   return (
     <div style={{ width: '600px', textAlign: 'center' }}>
-      <h2>CPU Temperature</h2>
+      <h2>
+        CPU Temperature
+        <span style={{
+          marginLeft: '10px',
+          fontSize: '0.7rem',
+          color: isConnected ? '#48BB78' : '#F56565',
+          fontWeight: 'normal'
+        }}>
+          {isConnected ? '● LIVE' : '○ OFFLINE'}
+        </span>
+      </h2>
       <div style={{ fontSize: '6rem', fontWeight: 'bold', margin: '2rem 0' }}>
-        {typeof value === 'number' ? `${value.toFixed(2)}°C` : 'Loading...'}
+        {latestValue ? `${latestValue.value.toFixed(2)}°C` : 'Loading...'}
       </div>
+      {latestValue && (
+        <div style={{ fontSize: '0.9rem', color: '#718096' }}>
+          Last updated: {new Date(latestValue.timestamp).toLocaleTimeString()}
+        </div>
+      )}
     </div>
   );
 }
